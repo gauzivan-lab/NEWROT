@@ -1,4 +1,4 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation, scrollClass } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
 import { Infinity } from 'lucide-react';
 
@@ -13,7 +13,7 @@ const weeks = [
       'Новый взгляд: старение — это программа, которую можно перенастроить.',
     ],
     feeling: 'Возраст — ресурс, а не ограничение',
-    image: 'https://ucarecdn.com/3ae3cac7-b301-40c5-a7b1-540136ed753c/-/preview/571x1000/',
+    image: 'https://ucarecdn.com/63f2f41a-d1a2-4e6e-b95e-71d78d90c8bd/-/preview/1000x757/',
   },
   {
     number: 2,
@@ -25,7 +25,7 @@ const weeks = [
       'Персональный план питания под ваш ритм и образ жизни.',
     ],
     feeling: 'Еда даёт энергию, а не отнимает её',
-    image: 'https://ucarecdn.com/4e881f0c-8d45-4f1f-ac5e-f3a25a56d994/-/preview/571x1000/',
+    image: 'https://ucarecdn.com/383e1685-9174-44be-8c66-4d14a6919fee/-/preview/1000x747/',
   },
   {
     number: 3,
@@ -36,7 +36,7 @@ const weeks = [
       'Разбираем добавки: что действительно работает и когда они нужны.',
     ],
     feeling: 'Я понимаю, как усиливать пользу от питания',
-    image: 'https://ucarecdn.com/eeddf4a4-81dc-451d-9614-ca78a26f2c8b/-/preview/571x1000/',
+    image: 'https://ucarecdn.com/07f1c426-7801-473a-bb57-798b703d448b/-/preview/1000x741/',
   },
   {
     number: 4,
@@ -47,7 +47,7 @@ const weeks = [
       'Домашний уход за лицом: компактные ритуалы с максимальным эффектом.',
     ],
     feeling: 'Я знаю, как сделать тело союзником и чувствовать его поддержку каждый день',
-    image: 'https://ucarecdn.com/a5d787f6-4a4d-4ebb-991b-aa6000be70dc/-/preview/571x1000/',
+    image: 'https://ucarecdn.com/a8e6d089-4f1e-4941-be7a-b5ef792afe9a/-/preview/1000x750/',
   },
   {
     number: 5,
@@ -59,7 +59,7 @@ const weeks = [
       'Сон как инструмент восстановления, молодости и энергии.',
     ],
     feeling: 'Я держу стресс под контролем и знаю, как управлять своим состоянием в любое время',
-    image: 'https://ucarecdn.com/5f5cddd4-4a28-40ca-8959-e05bbd8f8cb9/-/scale_crop/300x300/',
+    image: 'https://ucarecdn.com/09404891-5f62-4c8f-89c5-b03a00e6116f/-/preview/1000x747/',
   },
   {
     number: 6,
@@ -70,66 +70,51 @@ const weeks = [
       'Как закрепить результат надолго и избежать откатов.',
     ],
     feeling: 'Моя система собрана. Я знаю, что делать, чтобы чувствовать себя хорошо каждый день в любом возрасте',
-    image: 'https://ucarecdn.com/f5c2852b-c54e-4dc9-b2fa-179101a96c22/-/preview/571x1000/',
+    image: 'https://ucarecdn.com/8825810a-2713-4350-973a-836f7dd0de0f/-/preview/1000x742/',
   },
 ];
 
 function ProgramWeek({ week, index }: { week: typeof weeks[0]; index: number }) {
-  const { ref, isVisible } = useScrollAnimation(0.2);
-  const isEven = index % 2 === 1;
+  const { ref, isVisible } = useScrollAnimation(0.15);
 
   return (
     <div
       ref={ref}
-      className={`flex flex-col ${
-        isEven ? 'md:flex-row-reverse' : 'md:flex-row'
-      } gap-8 md:gap-12 items-center`}
+      className={`card-premium flex flex-col h-full ${scrollClass(isVisible, 'scale')}`}
+      style={{ transitionDelay: `${index * 90}ms` }}
     >
-      <div
-        className={`w-full md:w-5/12 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${isEven ? 'translate-x-20' : '-translate-x-20'}`
-        }`}
-      >
-        <div className="relative aspect-[4/5] rounded-card-lg overflow-hidden shadow-soft group max-w-sm mx-auto">
-          <img
-            src={week.image}
-            alt={`Неделя ${week.number}`}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-graphite/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <img
+          src={week.image}
+          alt={`Неделя ${week.number}`}
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-graphite/40 via-transparent to-transparent" />
+        <span className="absolute top-4 left-4 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-olive-deep to-olive-deep-hover text-white rounded-full text-caption font-medium shadow-soft">
+          <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">
+            {week.number}
+          </span>
+          Неделя {week.number}
+        </span>
       </div>
 
-      <div
-        className={`w-full md:w-1/2 transition-all duration-1000 delay-200 ${
-          isVisible ? 'opacity-100 translate-x-0' : `opacity-0 ${isEven ? '-translate-x-20' : 'translate-x-20'}`
-        }`}
-      >
-        <div className="mb-4">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-olive-deep to-olive-deep-hover text-white rounded-full text-caption font-medium shadow-soft">
-            <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-sm">
-              {week.number}
-            </span>
-            Неделя {week.number}
-          </span>
-        </div>
-
-        <h3 className="text-h3 font-serif font-semibold mb-6 text-graphite leading-tight">
+      <div className="flex flex-col flex-1 p-5">
+        <h3 className="text-lg font-serif font-semibold mb-3 text-graphite leading-tight">
           {week.title}
         </h3>
 
-        <ul className="space-y-4 mb-8">
+        <ul className="space-y-2 mb-4 flex-1">
           {week.items.map((item, itemIndex) => (
-            <li key={itemIndex} className="flex items-start gap-3 group/item">
-              <span className="w-2 h-2 rounded-full bg-olive-deep mt-2.5 flex-shrink-0 group-hover/item:scale-150 transition-transform" />
-              <span className="text-body-m text-slate leading-relaxed">{item}</span>
+            <li key={itemIndex} className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2 flex-shrink-0" />
+              <span className="text-sm text-slate leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
 
-        <div className="relative bg-gradient-to-br from-sage-light to-ecru rounded-card-lg p-6 border border-olive-mist/20 overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-olive-mist rounded-full blur-2xl opacity-10" />
-          <p className="text-body-m text-graphite italic relative">
+        <div className="relative bg-gradient-to-br from-sage-light to-ecru rounded-xl p-3 border border-olive-mist/20 overflow-hidden mt-auto">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-olive-mist rounded-full blur-2xl opacity-10" />
+          <p className="text-sm text-graphite italic relative">
             Ощущение недели: <span className="font-semibold text-olive-deep">«{week.feeling}»</span>
           </p>
         </div>
@@ -187,7 +172,7 @@ export default function Program() {
           </div>
         </div>
 
-        <div className="space-y-24 md:space-y-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {weeks.map((week, index) => (
             <ProgramWeek key={week.number} week={week} index={index} />
           ))}

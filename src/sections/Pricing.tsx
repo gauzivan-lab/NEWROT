@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import { Check, MessageCircle, Sparkles } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
 import Card from '../components/Card';
 import Button from '../components/Button';
-import FormCheckbox from '../components/FormCheckbox';
-import PaymentNotice from '../components/PaymentNotice';
 
 const plans = [
   {
@@ -45,8 +42,7 @@ const plans = [
 
 export default function Pricing() {
   const { ref, isVisible } = useScrollAnimation();
-  const [privacyAccepted, setPrivacyAccepted] = useState(false);
-  const [marketingAccepted, setMarketingAccepted] = useState(false);
+  const TELEGRAM = 'https://t.me/mayadadeyeva';
 
   return (
     <section id="pricing" className="py-28 md:py-36 bg-gradient-to-br from-sage-light/30 via-ecru to-sage-light/30 relative overflow-hidden grain-overlay">
@@ -156,31 +152,14 @@ export default function Pricing() {
                   </ul>
                 </div>
 
-                <div className="space-y-4 mb-6">
-                  <FormCheckbox
-                    id={`privacy-${plan.name}`}
-                    type="privacy"
-                    required
-                    checked={privacyAccepted}
-                    onChange={setPrivacyAccepted}
-                  />
-                  <FormCheckbox
-                    id={`marketing-${plan.name}`}
-                    type="marketing"
-                    checked={marketingAccepted}
-                    onChange={setMarketingAccepted}
-                  />
-                </div>
-
-                <PaymentNotice />
-
                 <Button
                   fullWidth
                   className="group mt-6"
-                  disabled={!privacyAccepted}
+                  onClick={() => window.open(TELEGRAM, '_blank')}
                 >
-                  Оплатить участие
-                  <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+                  <MessageCircle className="w-4 h-4 inline mr-2" />
+                  Написать мне лично
+                  <span className="inline-block group-hover:translate-x-1 transition-transform ml-1">→</span>
                 </Button>
               </Card>
             </div>
@@ -196,7 +175,7 @@ export default function Pricing() {
             <span className="text-body-m text-slate">Остались вопросы?</span>
             <Button
               variant="ghost"
-              onClick={() => window.open('https://wa.me/', '_blank')}
+              onClick={() => window.open(TELEGRAM, '_blank')}
               className="!py-2 !px-5"
             >
               <MessageCircle className="w-4 h-4 inline mr-2" />

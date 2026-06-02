@@ -43,7 +43,7 @@ export default function WhyItWorks() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-[36px] md:text-[52px] font-serif font-normal text-ecru/95 tracking-[0.02em] uppercase leading-tight">
+          <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold text-ecru mb-6 leading-tight">
             Почему мой подход работает
           </h2>
         </div>
@@ -58,12 +58,12 @@ export default function WhyItWorks() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 relative">
               <div className="p-8 md:p-10 bg-gradient-to-br from-white/10 to-white/5 border-b md:border-b-0 md:border-r border-ecru/15">
-                <h3 className="text-[28px] md:text-[32px] font-serif font-normal text-ecru/95 tracking-wide leading-tight">
+                <h3 className="text-h3 font-serif font-semibold text-ecru/95 leading-tight">
                   Подход Майи
                 </h3>
               </div>
               <div className="p-8 md:p-10 bg-gradient-to-br from-black/5 to-transparent">
-                <h3 className="text-[28px] md:text-[32px] font-serif font-normal text-ecru/70 tracking-wide leading-tight">
+                <h3 className="text-h3 font-serif font-semibold text-ecru/70 leading-tight">
                   Типовые курсы
                 </h3>
               </div>
