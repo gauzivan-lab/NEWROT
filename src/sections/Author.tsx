@@ -20,7 +20,7 @@ export default function Author() {
             >
               <div className="relative aspect-[3/4] rounded-card-lg overflow-hidden shadow-soft">
                 <img
-                  src="https://ucarecdn.com/a1f4d600-a281-4092-901c-9bd6586d7650/-/preview/686x1000/"
+                  src="/images/author.jpg"
                   alt="Майя Дадеева"
                   className="w-full h-full object-cover grayscale"
                 />

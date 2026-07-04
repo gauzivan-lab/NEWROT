@@ -62,7 +62,7 @@ export default function Hero() {
               <div className="absolute -inset-6 bg-gradient-to-br from-olive-mist/30 to-taupe-warm/30 rounded-3xl blur-3xl hidden md:block opacity-60" />
               <div className="relative aspect-[2/3] max-h-[580px] md:rounded-3xl overflow-hidden md:shadow-premium md:border-[6px] md:border-white/70">
                 <img
-                  src="https://ucarecdn.com/50bdcd72-69bf-4898-a5fe-72edd3300ee5/-/preview/666x1000/"
+                  src="/images/hero.jpg"
                   alt="Майя Дадеева"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                   style={{ transform: `translateY(${parallaxOffset * -0.3}px)` }}

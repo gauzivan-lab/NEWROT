@@ -10,7 +10,7 @@ export default function FinalCTA() {
     <section className="py-12 md:py-16 bg-sage-light relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://ucarecdn.com/653bd7b2-ad1f-4d48-8469-3cfed613b53a/-/preview/1200x750/"
+          src="/images/finalcta-bg.png"
           alt=""
           className="w-full h-full object-cover object-center"
         />
@@ -60,7 +60,7 @@ export default function FinalCTA() {
             }`}
           >
             <img
-              src="https://ucarecdn.com/1486dda0-a411-441f-b7cf-715ab16aa4d4/-/preview/571x1000/"
+              src="/images/finalcta-person.jpg"
               alt="Майя"
               className="w-full max-w-md h-auto object-contain drop-shadow-2xl translate-y-32 scale-95"
             />

@@ -53,7 +53,7 @@ export default function Header() {
               className="flex items-center hover:opacity-80 transition-smooth"
             >
               <img
-                src="https://ucarecdn.com/40affe55-2180-4e84-baf0-2e1a1e1599ae/-/preview/1000x1000/"
+                src="/images/logo.png"
                 alt="Maya Dadeeva"
                 className="h-20 md:h-28 w-auto"
               />

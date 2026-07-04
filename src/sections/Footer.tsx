@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <img
-              src="https://ucarecdn.com/40affe55-2180-4e84-baf0-2e1a1e1599ae/-/preview/1000x1000/"
+              src="/images/logo.png"
               alt="Maya Dadeeva"
               className="h-20 w-auto mb-4"
             />

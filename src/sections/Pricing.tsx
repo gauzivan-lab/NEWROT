@@ -72,14 +72,14 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`transition-all duration-700 ${
+              className={`transition-all duration-700 ${plan.popular ? 'pt-6' : ''} ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <Card
                 hover
-                className={`relative overflow-hidden h-full ${
+                className={`relative h-full ${
                   plan.popular
                     ? 'ring-2 ring-olive-deep/40 shadow-premium transform md:scale-[1.03]'
                     : ''
@@ -87,7 +87,7 @@ export default function Pricing() {
               >
                 {plan.popular && (
                   <>
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10" style={{top: '-18px'}}>
                       <span className="inline-flex items-center gap-2 bg-gradient-to-r from-olive-deep via-olive-deep-hover to-olive-deep text-white px-6 py-2.5 rounded-full text-caption font-medium shadow-hover">
                         <Sparkles className="w-4 h-4" />
                         Рекомендуем

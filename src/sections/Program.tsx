@@ -13,7 +13,7 @@ const weeks = [
       'Новый взгляд: старение — это программа, которую можно перенастроить.',
     ],
     feeling: 'Возраст — ресурс, а не ограничение',
-    image: 'https://ucarecdn.com/63f2f41a-d1a2-4e6e-b95e-71d78d90c8bd/-/preview/1000x757/',
+    image: '/images/week1.png',
   },
   {
     number: 2,
@@ -25,7 +25,7 @@ const weeks = [
       'Персональный план питания под ваш ритм и образ жизни.',
     ],
     feeling: 'Еда даёт энергию, а не отнимает её',
-    image: 'https://ucarecdn.com/383e1685-9174-44be-8c66-4d14a6919fee/-/preview/1000x747/',
+    image: '/images/week2.png',
   },
   {
     number: 3,
@@ -36,7 +36,7 @@ const weeks = [
       'Разбираем добавки: что действительно работает и когда они нужны.',
     ],
     feeling: 'Я понимаю, как усиливать пользу от питания',
-    image: 'https://ucarecdn.com/07f1c426-7801-473a-bb57-798b703d448b/-/preview/1000x741/',
+    image: '/images/week3.png',
   },
   {
     number: 4,
@@ -47,7 +47,7 @@ const weeks = [
       'Домашний уход за лицом: компактные ритуалы с максимальным эффектом.',
     ],
     feeling: 'Я знаю, как сделать тело союзником и чувствовать его поддержку каждый день',
-    image: 'https://ucarecdn.com/a8e6d089-4f1e-4941-be7a-b5ef792afe9a/-/preview/1000x750/',
+    image: '/images/week4.png',
   },
   {
     number: 5,
@@ -59,7 +59,7 @@ const weeks = [
       'Сон как инструмент восстановления, молодости и энергии.',
     ],
     feeling: 'Я держу стресс под контролем и знаю, как управлять своим состоянием в любое время',
-    image: 'https://ucarecdn.com/09404891-5f62-4c8f-89c5-b03a00e6116f/-/preview/1000x747/',
+    image: '/images/week5.jpg',
   },
   {
     number: 6,
@@ -70,7 +70,7 @@ const weeks = [
       'Как закрепить результат надолго и избежать откатов.',
     ],
     feeling: 'Моя система собрана. Я знаю, что делать, чтобы чувствовать себя хорошо каждый день в любом возрасте',
-    image: 'https://ucarecdn.com/8825810a-2713-4350-973a-836f7dd0de0f/-/preview/1000x742/',
+    image: '/images/week6.jpg',
   },
 ];
 
@@ -90,10 +90,7 @@ function ProgramWeek({ week, index }: { week: typeof weeks[0]; index: number }) 
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite/40 via-transparent to-transparent" />
-        <span className="absolute top-4 left-4 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-olive-deep to-olive-deep-hover text-white rounded-full text-caption font-medium shadow-soft">
-          <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">
-            {week.number}
-          </span>
+        <span className="absolute top-4 left-4 inline-flex items-center px-4 py-2 bg-gradient-to-r from-olive-deep to-olive-deep-hover text-white rounded-full text-caption font-medium shadow-soft">
           Неделя {week.number}
         </span>
       </div>

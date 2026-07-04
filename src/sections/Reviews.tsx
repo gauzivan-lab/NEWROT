@@ -4,15 +4,15 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
 
 const reviewImages = [
-  'https://ucarecdn.com/de663222-4358-4a95-a5a5-880d9dab61b8/-/preview/1000x1000/',
-  'https://ucarecdn.com/f2daea04-2dc4-428e-b3aa-c2a4adb6b87d/-/preview/1000x1000/',
-  'https://ucarecdn.com/61119e7c-0346-4ae4-a54a-68db7f9fecaf/-/preview/466x738/',
-  'https://ucarecdn.com/1e2520d8-9020-49e7-8686-2f7e2b697479/-/preview/712x856/',
-  'https://ucarecdn.com/309daec9-3e26-4cd1-9d16-b1914c1733bd/-/preview/690x838/',
-  'https://ucarecdn.com/047e8096-1f54-4f85-8c2b-94e1d4eb57ac/-/preview/714x810/',
-  'https://ucarecdn.com/31883dc3-7448-4aa9-94fd-b11aab358a4c/-/preview/734x750/',
-  'https://ucarecdn.com/15bcb4d4-8dd0-4e71-946e-c8e206632895/-/preview/658x500/',
-  'https://ucarecdn.com/0c2f77ec-b5ad-4856-ad4f-b59d7e728d66/-/preview/728x802/',
+  '/images/review1.jpg',
+  '/images/review2.jpg',
+  '/images/review3.jpg',
+  '/images/review4.jpg',
+  '/images/review5.jpg',
+  '/images/review6.jpg',
+  '/images/review7.jpg',
+  '/images/review8.jpg',
+  '/images/review9.jpg',
 ];
 
 export default function Reviews() {

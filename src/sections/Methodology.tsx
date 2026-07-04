@@ -8,7 +8,7 @@ export default function Methodology() {
       <div className="flex flex-col md:flex-row items-center">
         <div className={`w-full md:w-1/2 lg:w-2/5 flex-shrink-0 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
           <img
-            src="https://ucarecdn.com/84808231-45dc-403b-9b42-e6a9ce75870c/-/preview/939x1000/"
+            src="/images/methodology.jpg"
             alt="Майя Дадеева"
             className="w-full h-auto object-cover block"
           />
