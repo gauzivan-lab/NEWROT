@@ -1,9 +1,11 @@
 import Container from '../components/Container';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import content from '../content.json';
 
 export default function Author() {
   const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation(0.2);
   const { ref: textRef, isVisible: textVisible } = useScrollAnimation(0.2);
+  const { author } = content;
 
   return (
     <section className="py-24 md:py-32 bg-ecru">
@@ -20,7 +22,7 @@ export default function Author() {
             >
               <div className="relative aspect-[3/4] rounded-card-lg overflow-hidden shadow-soft">
                 <img
-                  src="/images/author.jpg"
+                  src={author.image}
                   alt="Майя Дадеева"
                   className="w-full h-full object-cover grayscale"
                 />
@@ -36,40 +38,26 @@ export default function Author() {
               }`}
             >
               <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold mb-4 text-graphite">
-                Автор программы Майя Дадеева
+                {author.heading}
               </h2>
 
               <p className="text-body-l text-olive-deep mb-6 italic">
-                Нутрициолог и наставник для женщин, которые хотят управлять возрастом и чувствовать себя лучше, чем 10 лет назад.
+                {author.subtitle}
               </p>
 
               <div className="space-y-4 mb-6">
                 <p className="text-body-m text-graphite leading-relaxed">
-                  «Я не просто обучаю, я иду рядом: как проводник, который сам прошёл этот путь и знает, как сделать его комфортным и результативным».
+                  {author.quote}
                 </p>
               </div>
 
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
-                  <span className="text-body-m text-slate">Высшее фармацевтическое образование</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
-                  <span className="text-body-m text-slate">20 лет работы с премиальными косметическими брендами</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
-                  <span className="text-body-m text-slate">Спикер «Московского долголетия»</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
-                  <span className="text-body-m text-slate">35+ лет практики в сфере здоровья и красоты</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
-                  <span className="text-body-m text-slate">Сочетание научного и натуропатического подходов</span>
-                </li>
+                {author.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-olive-deep mt-2.5 flex-shrink-0" />
+                    <span className="text-body-m text-slate">{bullet}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

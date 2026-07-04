@@ -2,18 +2,9 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
+import content from '../content.json';
 
-const reviewImages = [
-  '/images/review1.jpg',
-  '/images/review2.jpg',
-  '/images/review3.jpg',
-  '/images/review4.jpg',
-  '/images/review5.jpg',
-  '/images/review6.jpg',
-  '/images/review7.jpg',
-  '/images/review8.jpg',
-  '/images/review9.jpg',
-];
+const reviewImages = content.reviews.images;
 
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,7 +48,7 @@ export default function Reviews() {
           }`}
         >
           <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold mb-6 text-graphite">
-            Отзывы
+            {content.reviews.heading}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-olive-deep to-transparent mx-auto mb-4" />
           <p className="text-body-l text-slate max-w-2xl mx-auto">

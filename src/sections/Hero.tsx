@@ -4,10 +4,13 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import Disclaimer from '../components/Disclaimer';
+import content from '../content.json';
 
 export default function Hero() {
   const parallaxOffset = useParallax(0.3);
   const { ref, isVisible } = useScrollAnimation();
+  const { hero } = content;
+  const titleParts = hero.title.split('5.0+');
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-ecru via-sage-light/50 to-ecru overflow-hidden pt-24">
@@ -28,15 +31,21 @@ export default function Hero() {
           <div className={`order-2 lg:order-1 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
             <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/80 backdrop-blur-md rounded-full mb-8 fade-in-up border border-olive-mist/30 shadow-soft">
               <Sparkles className="w-4 h-4 text-olive-deep" />
-              <span className="text-caption text-graphite font-medium tracking-wide">Научный подход к долголетию</span>
+              <span className="text-caption text-graphite font-medium tracking-wide">{hero.badge}</span>
             </div>
 
             <h1 className="text-h1-mobile md:text-h1 lg:text-[68px] lg:leading-[1.1] font-serif font-semibold mb-8 text-graphite fade-in-up tracking-tight" style={{ animationDelay: '0.1s' }}>
-              Живи на <span className="text-gradient">5.0+</span> — питание, привычки и мышление для второй молодости
+              {titleParts.length === 2 ? (
+                <>
+                  {titleParts[0]}<span className="text-gradient">5.0+</span>{titleParts[1]}
+                </>
+              ) : (
+                hero.title
+              )}
             </h1>
 
             <p className="text-body-l md:text-xl text-slate mb-12 leading-relaxed fade-in-up max-w-xl" style={{ animationDelay: '0.2s' }}>
-              Возраст не приговор, если знать, как им управлять. Это программа, которую можно переписать. Научно обоснованная система питания, привычек и мышления для женщин 40+.
+              {hero.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 mb-16 fade-in-up" style={{ animationDelay: '0.3s' }}>
@@ -44,14 +53,14 @@ export default function Hero() {
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group shadow-hover"
               >
-                Записаться на ближайший поток
+                {hero.buttonText}
                 <ArrowRight className="w-5 h-5 inline ml-2 group-hover:translate-x-1 transition-smooth" />
               </Button>
             </div>
 
             <div className="fade-in-up space-y-7" style={{ animationDelay: '0.4s' }}>
               <p className="text-body-l text-slate leading-relaxed max-w-lg">
-                Место, где вы создаёте свою вторую — красивую и ресурсную — половину жизни.
+                {hero.footerText}
               </p>
               <Disclaimer />
             </div>
@@ -62,7 +71,7 @@ export default function Hero() {
               <div className="absolute -inset-6 bg-gradient-to-br from-olive-mist/30 to-taupe-warm/30 rounded-3xl blur-3xl hidden md:block opacity-60" />
               <div className="relative aspect-[2/3] max-h-[580px] md:rounded-3xl overflow-hidden md:shadow-premium md:border-[6px] md:border-white/70">
                 <img
-                  src="/images/hero.jpg"
+                  src={hero.image}
                   alt="Майя Дадеева"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                   style={{ transform: `translateY(${parallaxOffset * -0.3}px)` }}
