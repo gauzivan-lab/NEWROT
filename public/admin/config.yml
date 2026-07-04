@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: gauzivan-lab/NEWROT
+  name: git-gateway
   branch: main
 
 media_folder: "public/images/uploads"
