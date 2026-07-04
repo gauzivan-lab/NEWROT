@@ -3,53 +3,20 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
 import Card from '../components/Card';
 import Button from '../components/Button';
+import content from '../content.json';
 
-const plans = [
-  {
-    name: 'Базовый',
-    price: '40 000',
-    description: 'Формат для тех, кто хочет работать по продуманной системе и двигаться в поддерживающей атмосфере группы.',
-    features: [
-      'Полный доступ ко всем урокам, гайдам и практическим материалам',
-      'Записи занятий для удобного просмотра',
-      'Групповой чат с обсуждениями и ответами на вопросы',
-      'Базовую «Карту молодости» — систему питания, привычек и ухода, основанную на современных знаниях о возрастных изменениях и ритмах женского организма',
-    ],
-    forWhom: [
-      'вам важен понятный, логичный путь',
-      'вам комфортно внедрять изменения в группе',
-      'вам достаточно общего плана без индивидуальных разборов',
-    ],
-  },
-  {
-    name: 'Премиум',
-    price: '55 000',
-    popular: true,
-    description: 'Формат для тех, кому важна точная настройка под свой организм и сопровождение специалиста.',
-    features: [
-      'Всё из Базового тарифа',
-      'Персональную диагностику: анализ ваших показателей, факторов риска и особенностей',
-      'Индивидуальные еженедельные консультации с Майей: разборы, корректировки, ответы на личные вопросы',
-      'Персональную «Карту молодости» — систему питания, восстановления и привычек, адаптированную под ваш гормональный фон, ритмы, задачи и образ жизни',
-    ],
-    forWhom: [
-      'вы хотите двигаться эффективнее и увереннее',
-      'вам важно понимать, что работает именно для вас',
-      'вы предпочитаете персональные решения, а не усреднённые рекомендации',
-    ],
-  },
-];
+const { heading, decorativeImage, plans, questionText, questionButtonText } = content.pricing;
 
 export default function Pricing() {
   const { ref, isVisible } = useScrollAnimation();
-  const TELEGRAM = 'https://t.me/mayadadeyeva';
+  const TELEGRAM = content.contacts.telegram;
 
   return (
     <section id="pricing" className="py-28 md:py-36 bg-gradient-to-br from-sage-light/30 via-ecru to-sage-light/30 relative overflow-hidden grain-overlay">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-olive-mist to-taupe-warm rounded-full blur-3xl opacity-[0.08]" />
       <div className="absolute -left-16 md:-left-24 top-1/3 -translate-y-1/2 w-80 md:w-96 opacity-30 pointer-events-none">
         <img
-          src="https://ucarecdn.com/092b4d44-085c-402e-8619-0f1554e9dd25/-/preview/1000x671/"
+          src={decorativeImage}
           alt=""
           className="w-full h-auto"
         />
@@ -63,7 +30,7 @@ export default function Pricing() {
           }`}
         >
           <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold mb-8 text-graphite tracking-tight">
-            Форматы участия и цены
+            {heading}
           </h2>
           <div className="w-28 h-1 bg-gradient-to-r from-transparent via-olive-deep to-transparent mx-auto rounded-full" />
         </div>
@@ -172,14 +139,14 @@ export default function Pricing() {
           }`}
         >
           <div className="inline-flex items-center gap-4 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 border border-olive-mist/20 mb-6">
-            <span className="text-body-m text-slate">Остались вопросы?</span>
+            <span className="text-body-m text-slate">{questionText}</span>
             <Button
               variant="ghost"
               onClick={() => window.open(TELEGRAM, '_blank')}
               className="!py-2 !px-5"
             >
               <MessageCircle className="w-4 h-4 inline mr-2" />
-              Задать вопрос
+              {questionButtonText}
             </Button>
           </div>
         </div>

@@ -10,9 +10,25 @@ collections:
     label: "Контент сайта"
     files:
       - file: "src/content.json"
-        label: "Главная страница"
+        label: "Весь сайт"
         name: "content"
         fields:
+          - label: "Лого и контакты"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "Логотип", name: "logo", widget: "image" }
+
+          - label: "Контакты"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Ссылка на Telegram", name: "telegram", widget: "string" }
+              - { label: "Ссылка на WhatsApp", name: "whatsapp", widget: "string" }
+              - { label: "Телефон (для показа)", name: "phone", widget: "string" }
+              - { label: "Телефон (ссылка, формат tel:+7...)", name: "phoneHref", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+
           - label: "Первый экран (Hero)"
             name: "hero"
             widget: "object"
@@ -23,6 +39,88 @@ collections:
               - { label: "Текст кнопки", name: "buttonText", widget: "string" }
               - { label: "Текст под кнопкой", name: "footerText", widget: "text" }
               - { label: "Фото", name: "image", widget: "image" }
+
+          - label: "Для кого программа"
+            name: "forWhom"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "heading", widget: "string" }
+              - { label: "Подзаголовок", name: "subheading", widget: "text" }
+              - { label: "Фоновая картинка", name: "backgroundImage", widget: "image" }
+              - label: "Карточки"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Эмодзи-иконка", name: "icon", widget: "string" }
+                  - { label: "Заголовок карточки", name: "title", widget: "string" }
+                  - { label: "Текст карточки", name: "text", widget: "text" }
+              - { label: "Текст в зелёной карточке (вопрос)", name: "ctaQuestion", widget: "string" }
+              - { label: "Текст в зелёной карточке (ответ)", name: "ctaAnswer", widget: "string" }
+
+          - label: "Результаты (Benefits)"
+            name: "benefits"
+            widget: "object"
+            fields:
+              - { label: "Маленькая надпись сверху", name: "label", widget: "string" }
+              - { label: "Заголовок", name: "heading", widget: "string" }
+              - { label: "Подзаголовок", name: "subheading", widget: "text" }
+              - label: "Карточки результатов"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Заголовок", name: "title", widget: "string" }
+                  - { label: "Текст", name: "subtitle", widget: "text" }
+
+          - label: "Программа курса"
+            name: "program"
+            widget: "object"
+            fields:
+              - { label: "Заголовок блока", name: "heading", widget: "string" }
+              - label: "3 карточки под заголовком"
+                name: "features"
+                widget: "list"
+                field: { label: "Текст", name: "feature", widget: "string" }
+              - label: "Недели программы"
+                name: "weeks"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Название недели", name: "title", widget: "string" }
+                  - label: "Пункты недели"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Пункт", name: "point", widget: "string" }
+                  - { label: "Ощущение недели", name: "feeling", widget: "string" }
+                  - { label: "Фото", name: "image", widget: "image" }
+
+          - label: "Форматы и цены"
+            name: "pricing"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "heading", widget: "string" }
+              - { label: "Декоративная картинка", name: "decorativeImage", widget: "image" }
+              - { label: "Текст «Остались вопросы?»", name: "questionText", widget: "string" }
+              - { label: "Текст кнопки вопроса", name: "questionButtonText", widget: "string" }
+              - label: "Тарифы"
+                name: "plans"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}₽"
+                fields:
+                  - { label: "Название тарифа", name: "name", widget: "string" }
+                  - { label: "Цена (только число)", name: "price", widget: "string" }
+                  - { label: "Рекомендуемый тариф", name: "popular", widget: "boolean", default: false }
+                  - { label: "Описание", name: "description", widget: "text" }
+                  - label: "Что входит"
+                    name: "features"
+                    widget: "list"
+                    field: { label: "Пункт", name: "point", widget: "string" }
+                  - label: "Подойдёт, если"
+                    name: "forWhom"
+                    widget: "list"
+                    field: { label: "Пункт", name: "point", widget: "string" }
+
           - label: "Автор программы"
             name: "author"
             widget: "object"
@@ -35,6 +133,14 @@ collections:
                 widget: "list"
                 field: { label: "Пункт", name: "bullet", widget: "string" }
               - { label: "Фото", name: "image", widget: "image" }
+
+          - label: "Цитата методологии (тёмный блок)"
+            name: "methodology"
+            widget: "object"
+            fields:
+              - { label: "Цитата", name: "quote", widget: "text" }
+              - { label: "Фото", name: "image", widget: "image" }
+
           - label: "Отзывы"
             name: "reviews"
             widget: "object"
@@ -44,3 +150,35 @@ collections:
                 name: "images"
                 widget: "list"
                 field: { label: "Фото", name: "image", widget: "image" }
+
+          - label: "Частые вопросы"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Заголовок блока", name: "heading", widget: "string" }
+              - label: "Вопросы"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.question}}"
+                fields:
+                  - { label: "Вопрос", name: "question", widget: "string" }
+                  - { label: "Ответ", name: "answer", widget: "text" }
+
+          - label: "Финальный призыв (перед футером)"
+            name: "finalCTA"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "heading", widget: "string" }
+              - { label: "Текст", name: "subheading", widget: "text" }
+              - { label: "Текст кнопки", name: "buttonText", widget: "string" }
+              - { label: "Фоновая картинка", name: "backgroundImage", widget: "image" }
+              - { label: "Фото человека", name: "personImage", widget: "image" }
+
+          - label: "Футер"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Текст под логотипом", name: "tagline", widget: "text" }
+              - { label: "Юр. лицо", name: "legalName", widget: "string" }
+              - { label: "ИНН", name: "inn", widget: "string" }
+              - { label: "Копирайт внизу", name: "copyrightText", widget: "string" }

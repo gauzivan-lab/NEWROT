@@ -1,47 +1,11 @@
 import { useScrollAnimation, scrollClass } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
+import content from '../content.json';
 
-const benefits = [
-  {
-    number: '01',
-    title: 'Энергия и ясность',
-    subtitle: 'Каждое утро без усталости, лёгкое пробуждение и ровное настроение весь день',
-    icon: '✦',
-  },
-  {
-    number: '02',
-    title: 'Минус отёки и 2–5 кг',
-    subtitle: 'Если есть лишний вес — он уходит мягко и без стресса, без диет и запретов',
-    icon: '✦',
-  },
-  {
-    number: '03',
-    title: 'Осознанная система питания',
-    subtitle: 'Вы точно знаете, что и зачем едите — без крайностей и чувства вины',
-    icon: '✦',
-  },
-  {
-    number: '04',
-    title: 'Новый ритм жизни',
-    subtitle: 'Здоровые привычки становятся естественной частью дня — без усилий',
-    icon: '✦',
-  },
-  {
-    number: '05',
-    title: 'Спокойствие и уверенность',
-    subtitle: 'Гармония с телом, эмоциями и возрастом. Вы принимаете себя такой, какая вы есть',
-    icon: '✦',
-  },
-  {
-    number: '06',
-    title: 'Вторая молодость',
-    subtitle: 'Чувство обновления, лёгкости и уверенности — внутри и в отражении',
-    icon: '✦',
-  },
-];
+const { label, heading, subheading, items: benefits } = content.benefits;
 
 export default function Benefits() {
-  const heading = useScrollAnimation(0.1);
+  const headingAnim = useScrollAnimation(0.1);
   const grid    = useScrollAnimation(0.05);
 
   return (
@@ -53,18 +17,18 @@ export default function Benefits() {
       <Container>
         {/* Header */}
         <div
-          ref={heading.ref}
-          className={`text-center mb-16 md:mb-20 ${scrollClass(heading.isVisible, 'up')}`}
+          ref={headingAnim.ref}
+          className={`text-center mb-16 md:mb-20 ${scrollClass(headingAnim.isVisible, 'up')}`}
         >
           <p className="text-sm uppercase tracking-[0.25em] text-olive-deep/50 mb-4 font-medium">
-            Результаты
+            {label}
           </p>
           <h2 className="text-h2-mobile md:text-h2 lg:text-5xl font-serif font-semibold mb-5 text-graphite tracking-tight">
-            Что изменится после программы
+            {heading}
           </h2>
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-olive-deep/30 to-transparent mx-auto mb-6" />
           <p className="text-body md:text-lg text-slate max-w-2xl mx-auto leading-relaxed">
-            Шесть состояний, которые вы почувствуете уже в процессе курса
+            {subheading}
           </p>
         </div>
 
@@ -86,10 +50,10 @@ export default function Benefits() {
                     className="font-serif font-semibold text-4xl leading-none select-none"
                     style={{ color: 'rgba(92,107,71,0.12)' }}
                   >
-                    {benefit.number}
+                    {String(index + 1).padStart(2, '0')}
                   </span>
                   <span className="text-olive-deep/40 text-lg group-hover:text-olive-deep/70 transition-colors duration-300">
-                    {benefit.icon}
+                    ✦
                   </span>
                 </div>
 

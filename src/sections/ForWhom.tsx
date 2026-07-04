@@ -1,43 +1,8 @@
 import { useScrollAnimation, scrollClass } from '../hooks/useScrollAnimation';
 import Container from '../components/Container';
+import content from '../content.json';
 
-const items = [
-  {
-    icon: '⚡',
-    title: 'Упадок сил',
-    text: 'Хочется вернуть утреннюю энергию и перестать чувствовать себя уставшей к обеду',
-  },
-  {
-    icon: '⚖️',
-    title: 'Вес и отёки',
-    text: 'Лишние килограммы держатся, диеты не работают, тело перестало слушаться',
-  },
-  {
-    icon: '🌿',
-    title: 'Менопауза',
-    text: 'Симптомы мешают жить активно — нужно понять как поддержать тело в этот период',
-  },
-  {
-    icon: '✨',
-    title: 'Страх «стать невидимой»',
-    text: 'Ощущение, что лучшие годы позади и общество перестаёт тебя замечать',
-  },
-  {
-    icon: '⏳',
-    title: 'Страх «не успеть»',
-    text: 'Тревога не прожить ярко и счастливо вторую половину жизни так, как хочется',
-  },
-  {
-    icon: '🧠',
-    title: 'Туман в голове',
-    text: 'Мозг устаёт быстрее, внимание рассеивается, трудно сосредоточиться и запоминать',
-  },
-  {
-    icon: '🗂',
-    title: 'Нет системы',
-    text: 'Нужна ясность и работающая структура: питание, сон, режим, мышление — всё вместе',
-  },
-];
+const { items, backgroundImage, heading, subheading, ctaQuestion, ctaAnswer } = content.forWhom;
 
 export default function ForWhom() {
   const title = useScrollAnimation(0.1);
@@ -51,7 +16,7 @@ export default function ForWhom() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://ucarecdn.com/53c672f7-0b36-434e-a20f-b24ab514ff0d/-/preview/1000x666/)' }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       />
       {/* Лёгкий overlay для читаемости текста */}
       <div className="absolute inset-0 bg-ecru/30" />
@@ -64,11 +29,11 @@ export default function ForWhom() {
           className={`text-center mb-14 md:mb-18 ${scrollClass(title.isVisible, 'up')}`}
         >
           <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold text-graphite mb-5 leading-tight">
-            Для кого эта программа
+            {heading}
           </h2>
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-olive-deep/40 to-transparent mx-auto mb-5" />
           <p className="text-body-l text-graphite/65 max-w-xl mx-auto leading-relaxed">
-            Дело не только в возрасте — главное в привычках, которые формируют вашу энергию и качество жизни.
+            {subheading}
           </p>
         </div>
 
@@ -156,10 +121,10 @@ export default function ForWhom() {
                 </svg>
               </div>
               <p className="text-sm text-white/75 leading-relaxed font-light">
-                Узнаёте себя хотя бы в одном пункте?
+                {ctaQuestion}
               </p>
               <p className="text-base font-semibold text-white">
-                Эта программа — для вас
+                {ctaAnswer}
               </p>
             </div>
           </div>

@@ -1,16 +1,18 @@
 import Button from '../components/Button';
 import Container from '../components/Container';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import content from '../content.json';
 
 export default function FinalCTA() {
   const { ref: textRef, isVisible: textVisible } = useScrollAnimation(0.2);
   const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation(0.2);
+  const { heading, subheading, buttonText, backgroundImage, personImage } = content.finalCTA;
 
   return (
     <section className="py-12 md:py-16 bg-sage-light relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/finalcta-bg.png"
+          src={backgroundImage}
           alt=""
           className="w-full h-full object-cover object-center"
         />
@@ -29,25 +31,25 @@ export default function FinalCTA() {
           >
             <h2 className="text-h2-mobile md:text-h2 font-serif font-semibold mb-8 text-ecru leading-tight">
               <span className="relative inline-block">
-                Управлять
+                {heading.split(' ')[0]}
                 <span
                   className={`absolute bottom-1 left-0 h-0.5 bg-olive-deep transition-all duration-700 delay-500 ${
                     textVisible ? 'w-full' : 'w-0'
                   }`}
                 />
               </span>{' '}
-              возрастом легче, чем кажется
+              {heading.split(' ').slice(1).join(' ')}
             </h2>
 
             <p className="text-body-xl text-ecru/90 mb-12 leading-relaxed">
-              Через 6 недель у вас будет ясная система питания и привычек, лёгкость в теле и энергия для жизни. Это инвестиция в десятки лет активной, красивой и счастливой жизни.
+              {subheading}
             </p>
 
             <Button
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-olive-deep hover:bg-olive-deep/90 text-lg px-10 py-4"
             >
-              Присоединиться к программе
+              {buttonText}
             </Button>
           </div>
 
@@ -60,7 +62,7 @@ export default function FinalCTA() {
             }`}
           >
             <img
-              src="/images/finalcta-person.jpg"
+              src={personImage}
               alt="Майя"
               className="w-full max-w-md h-auto object-contain drop-shadow-2xl translate-y-32 scale-95"
             />

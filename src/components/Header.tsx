@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Container from './Container';
+import content from '../content.json';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +54,7 @@ export default function Header() {
               className="flex items-center hover:opacity-80 transition-smooth"
             >
               <img
-                src="/images/logo.png"
+                src={content.site.logo}
                 alt="Maya Dadeeva"
                 className="h-20 md:h-28 w-auto"
               />

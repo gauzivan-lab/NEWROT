@@ -2,25 +2,28 @@ import { MessageCircle, Send, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Container from '../components/Container';
 import Disclaimer from '../components/Disclaimer';
+import content from '../content.json';
 
 export default function Footer() {
+  const { site, contacts, footer } = content;
+
   return (
     <footer className="py-16 bg-graphite text-white">
       <Container>
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <img
-              src="/images/logo.png"
+              src={site.logo}
               alt="Maya Dadeeva"
               className="h-20 w-auto mb-4"
             />
             <p className="text-body-m text-white/70 mb-4">
-              Научно обоснованная система питания, привычек и мышления для женщин 40+
+              {footer.tagline}
             </p>
             <div className="text-body-s text-white/50 space-y-1">
-              <p>Дадеева Майя Алексеевна</p>
-              <p>ИНН: 502601163127</p>
-              <p>Email: m_a_y_a@mail.ru</p>
+              <p>{footer.legalName}</p>
+              <p>ИНН: {footer.inn}</p>
+              <p>Email: {contacts.email}</p>
             </div>
           </div>
 
@@ -28,7 +31,7 @@ export default function Footer() {
             <h4 className="text-body-l font-medium mb-4">Контакты</h4>
             <div className="space-y-3">
               <a
-                href="https://wa.me/79031866548"
+                href={contacts.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-body-m text-white/70 hover:text-white transition-smooth"
@@ -37,7 +40,7 @@ export default function Footer() {
                 WhatsApp
               </a>
               <a
-                href="https://t.me/mayadadeyeva"
+                href={contacts.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-body-m text-white/70 hover:text-white transition-smooth"
@@ -46,11 +49,11 @@ export default function Footer() {
                 Telegram
               </a>
               <a
-                href="tel:+79031866548"
+                href={contacts.phoneHref}
                 className="flex items-center gap-3 text-body-m text-white/70 hover:text-white transition-smooth"
               >
                 <Phone className="w-5 h-5" />
-                +7 903 186-65-48
+                {contacts.phone}
               </a>
             </div>
           </div>
@@ -74,7 +77,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/20 text-center">
           <p className="text-caption text-white/50">
-            © 2025 Живи на 5.0+. Все права защищены.
+            {footer.copyrightText}
           </p>
         </div>
       </Container>
