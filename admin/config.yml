@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: gauzivan-lab/NEWROT
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "content"
+    label: "Контент сайта"
+    files:
+      - file: "src/content.json"
+        label: "Главная страница"
+        name: "content"
+        fields:
+          - label: "Первый экран (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Бейдж над заголовком", name: "badge", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Подзаголовок", name: "subtitle", widget: "text" }
+              - { label: "Текст кнопки", name: "buttonText", widget: "string" }
+              - { label: "Текст под кнопкой", name: "footerText", widget: "text" }
+              - { label: "Фото", name: "image", widget: "image" }
+          - label: "Автор программы"
+            name: "author"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "heading", widget: "string" }
+              - { label: "Подзаголовок (курсив)", name: "subtitle", widget: "text" }
+              - { label: "Цитата", name: "quote", widget: "text" }
+              - label: "Пункты списка"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Пункт", name: "bullet", widget: "string" }
+              - { label: "Фото", name: "image", widget: "image" }
+          - label: "Отзывы"
+            name: "reviews"
+            widget: "object"
+            fields:
+              - { label: "Заголовок блока", name: "heading", widget: "string" }
+              - label: "Фото отзывов"
+                name: "images"
+                widget: "list"
+                field: { label: "Фото", name: "image", widget: "image" }
